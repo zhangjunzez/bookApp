@@ -1,0 +1,319 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>分享好友</title>
+    <link rel="stylesheet" href="comm.css">
+    <script>
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    if (clientWidth >= 750) {
+                        docEl.style.fontSize = '100px';
+                    } else {
+
+                        docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+                    }
+                };
+
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+    <style>
+        html{
+            width: 100%;
+            height: auto;
+        }
+        body{
+            width: 100%;
+            height: auto;
+        }
+        .topBg {
+            width: 100%;
+            height: 10.42rem;
+            background-image: url(img/bg.png);
+            background-size: contain;
+        }
+
+        .content {
+            width: 100%;
+            height: auto;
+            background-color: #990910;
+            padding: 0.5rem 0;
+        }
+
+        .text_gift {
+            width: 100%;
+            height: 1.2rem;
+        }
+
+        .text_gift p {
+            /* color: #F79732;
+            color: #FEDFB4; */
+            /* width: 191px; */
+            /* height: 43px; */
+            font-size: 0.46rem;
+            font-family: Source Han Sans CN;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 1);
+            line-height: 46px;
+            background: linear-gradient(0deg, rgba(247, 151, 50, 1) 0%, rgba(254, 223, 180, 1) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.2rem;
+            margin: 0 18px;
+        }
+
+        .zuoImg,
+        .youImg {
+            width: 1.86rem;
+            height: 0.2rem;
+            background-size: contain;
+            margin-top: 0.55rem;
+        }
+
+        .zuoImg {
+            margin-left: 0.75rem;
+        }
+
+        .jf_content {
+            width: 100%;
+            height: 2.67rem;
+            /* padding: 0 0.3rem; */
+        }
+
+        .jf_li {
+            width: 2.2rem;
+            height: 2.6rem;
+            background-image: url("img/zuo@2x.png");
+            background-size: cover;
+            list-style: none;
+
+        }
+        .jf_li:first-child{
+            margin-left: 0.3rem;
+        }
+
+        .jf_li:nth-child(2) {
+            margin: 0 0.13rem;
+        }
+
+        .jf_li p {
+            font-size: 0.14rem;
+            text-align: center;
+        }
+
+        .jf_li p.p1 {
+            font-size: 0.16rem;
+            color: #F79732;
+            line-height: 1rem;
+        }
+
+        .jf_li p.p2 {
+            font-size: 0.16rem;
+            color: #990910;
+            line-height: 0.5rem;
+            margin-top: 0.3rem;
+        }
+
+        .jf_li p.p3 {
+            font-size: 0.16rem;
+            color: #F79732;
+            line-height: 0.5rem;
+        }
+
+        .QRCont {
+            width: 7.13rem;
+            height: 7.13rem;
+            margin: 0 auto;
+            background-color: #fff;
+            border-radius: 5px;
+            padding-top: 0.15rem;
+            margin-top: 0.56rem;
+        }
+
+        .innerQR {
+            width: 6.89rem;
+            height: 6.83rem;
+            margin: 0 auto;
+            border: 1px solid #B12627;
+            border-radius: 5px;
+        }
+
+        .num_join {
+            text-align: center;
+            font-size: 0.2rem;
+            color: #000000;
+            line-height: 0.6rem;
+        }
+
+        .num_join b {
+            color: #F79732;
+        }
+
+        .QRImg {
+            width: 5.61rem;
+            height: 4.8rem;
+            margin: 0 auto;
+            box-shadow: #E1E1E1 0 0 10px 0;
+            padding-top: 0.3rem;
+            border-radius: 15px;
+
+        }
+
+        .QRcodeImg {
+            width: 4rem;
+            height: 4rem;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .save_QRText {
+            font-size: 12px;
+            line-height: 0.8rem;
+            text-align: center;
+        }
+
+        .btn_share {
+            width: 6.31rem;
+            height: 0.86rem;
+            background-color: #FF5353;
+            border-radius: 0.5rem;
+            margin: 0 auto;
+            color: #fff;
+            margin-top: 0.2rem;
+            margin-left: 0.29rem;
+            font-size: 0.3rem;
+        }
+
+        .guize_text {
+            width: 6rem;
+            height: auto;
+            margin: 0 auto;
+        }
+
+        .guize_text p {
+            font-size: 0.24rem;
+            color: #CCB092;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="topBg">
+    <button type="button" onclick="secondClick()">Click button</button>
+    </div>
+    <div class="content">
+        <div class="text_gift clearfix">
+            <img class="zuoImg flotleft" src="img/zuo.png" alt="">
+            <p class="flotleft">邀请有礼</p>
+            <img class="youImg flotleft" src="img/you.png" alt="">
+        </div>
+        <ul class="jf_content clearfix">
+            <li class="jf_li flotleft">
+                <p class="p1">首次邀请好友</p>
+                <p class="p2">10积分</p>
+                <p class="p3">两人各获取</p>
+            </li>
+            <li class="jf_li flotleft">
+                <p class="p1">首次邀请好友</p>
+                <p class="p2">10积分</p>
+                <p class="p3">两人各获取</p>
+            </li>
+            <li class="jf_li flotleft">
+                <p class="p1">首次邀请好友</p>
+                <p class="p2">10积分</p>
+                <p class="p3">两人各获取</p>
+            </li>
+        </ul>
+        <div class="QRCont">
+            <div class="innerQR">
+                <p class="num_join">已有 <b>100000</b> 人参与活动</p>
+                <div class="QRImg">
+                    <!-- <div class="QRcodeImg" id="qrcode"></div> -->
+                    <img id="qrcode" class="QRcodeImg" src="" alt="">
+                    <p class="save_QRText">长按二维码保存图片</p>
+                </div>
+                <button id="btn_share" class="btn_share">邀请好友</button>
+            </div>
+        </div>
+        <div class="text_gift clearfix">
+            <img class="zuoImg flotleft" src="img/zuo.png" alt="">
+            <p class="flotleft">参与规则</p>
+            <img class="youImg flotleft" src="img/you.png" alt="">
+        </div>
+        <div class="guize_text">
+            <p class="guizeP">*将邀请码分享给好友，对方下载突点儿教育APP并登录后输入即可领取10积分；</p>
+            <p class="guizeP">*您所邀请的好友在突点儿教育首单下单成功后，您可获得10积分;</p>
+            <p class="guizeP">*获得积分奖励仅在突点儿教育APP内有效，满足兑换条件可兑换相应商品。</p>
+        </div>
+    </div>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery.qrcode/1.0/jquery.qrcode.min.js">
+    </script>
+    <script>
+        $(function () {
+            jQuery('#qrcode').qrcode("https://www.baidu.com");
+
+            function $ajax_json(relativeUrl, data, successfun) {
+                $.ajax({
+                    url: $ip + relativeUrl + "",
+                    type: "post",
+                    data: data,
+                    contentType: "application/json charset=UTF-8",
+                    dataType: "json",
+                    success: function (json) {
+                        successfun(json);
+                    }
+                });
+            }
+            var $redPacket_findDetail = "redPacket/findDetail";
+
+            function $ajax_redPacket_receive(data, successfun) {
+                $ajax_json($redPacket_receive, data, successfun)
+            }
+
+
+            // 调用ios
+            // 不传参时（ 一定要传空字符串）
+            window.webkit.messageHandlers.iosFun.postMessage("");
+            // 传参时
+            var data = {
+                test: 'test'
+            };
+            window.webkit.messageHandlers.iosFun.postMessage(data);
+
+            // 调用Andriod
+            // 注意： 安卓是不能直接传json的，需要转化为字符串，如下：
+            var data = {
+                key1: val1,
+                key2: val2
+            }
+            window.androidFun.javaFunction(JSON.stringify(data));
+
+            var test = "test";
+            window.androidFun.javaFunction(test);
+            // 无参数时（不需要传空字符串）
+            window.androidFun.javaFunction();
+
+
+        })
+    </script>
+    
+    <script type="text/javascript">
+    function secondClick() {
+        
+        window.webkit.messageHandlers.secondClick.postMessage({
+            "body": "buttonActionMessage"
+        });
+    }
+    </script>
+</body>
+
+</html>
